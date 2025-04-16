@@ -14,10 +14,12 @@ A web application to manage jewellery products with features like add, edit, del
 1. Clone the repo:
 ```bash
 git clone https://github.com/Santhiya-velayutham/product-manage.git
-cd jewellery-product-management
+cd product-manage
 
 Install backend dependencies:
+cd product-manage
 npm install
 
 Running the App
+cd product-manage
 npm run server
