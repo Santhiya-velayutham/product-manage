@@ -4,15 +4,21 @@ const bcrypt = require('bcryptjs');
 
 
 const adminSchema=new Schema({
-    useremail:{type:String},
-    password:{
-      type:String
-}
+  useremail: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 adminSchema.pre('save',async function(next) {
   
     // Hash the password with cost of 12
+    if (!this.isModified("password")) return next();
     this.password = await bcrypt.hash(this.password, 12);
     next();
   });

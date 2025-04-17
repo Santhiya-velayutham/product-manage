@@ -1,12 +1,9 @@
-const Router = require("express")
+const express = require("express");
+const router = express.Router();
 
+const AuthUser = require("../Controllers/AuthUser");
 
-const router = Router()
+router.post("/signup", AuthUser.createadmin);
+router.post("/loginadmin", AuthUser.loginadmin);
 
-//admintasks
-
-router.post("/createadmin",require("../Controllers/AuthUser").createadmin);
-router.post("/loginadmin",require("../Controllers/AuthUser").loginadmin);
-
-
-module.exports = router
+module.exports = router; // ✅ This is what app.use() expects!
